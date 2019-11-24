@@ -10,8 +10,6 @@ function SynchronousApp (props) {
       <HeroesList
         low={props.pagination.low}
         high={props.pagination.high}
-        // low={props.pagination.low}
-        // high={props.pagination.high}
       />
     </div>
   );

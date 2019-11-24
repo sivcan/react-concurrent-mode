@@ -25,16 +25,6 @@ function ConcurrentApp (props) {
         low={props.pagination.low}
         high={props.pagination.high}
       />
-      {/* <Pagination
-        pagination={props.pagination}
-        onChange={(paginationData) => {
-          startTransition(() => {
-            setPagination(paginationData);
-          });
-        }}
-        // Use isPending to show loading state next to button
-        isPending={isPending}
-      /> */}
     </div>
   );
 }
