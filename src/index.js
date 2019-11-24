@@ -4,13 +4,16 @@ import logo from './assets/logo.svg';
 import './App.scss';
 import ConcurrentApp from './react-concurrent/ConcurrentApp';
 import SynchronousApp from './react-synchronous/SynchronousApp';
-import constants from './constants/constants';
 import Pagination from './components/Pagination';
-import { SYNC, CONCURRENT } from './constants/constants';
+import {
+  SYNC,
+  CONCURRENT,
+  LIST_ITEMS_COUNT
+} from './constants/constants';
 import Toggle from './components/Toggle';
 
 function App () {
-  const [pagination, setPagination] = useState({ low: 1, high: constants.LIST_ITEMS_COUNT }),
+  const [pagination, setPagination] = useState({ low: 1, high: LIST_ITEMS_COUNT }),
     [modes, setModes] = useState({ [SYNC]: true, [CONCURRENT]: false });
 
   return (

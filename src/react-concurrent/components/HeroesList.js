@@ -3,6 +3,7 @@ import { getHero } from '../../services/DotaService';
 import HeroSkeletonLoader from '../../components/HeroSkeletonLoader';
 import { createResource } from '../../services/ReactCache';
 import DELAYS from '../../constants/delays';
+import HeroTile from '../../components/HeroTile';
 
 export default function HeroesList (props) {
   return (
@@ -10,18 +11,22 @@ export default function HeroesList (props) {
       <div className='hero-list'>
         <Suspense fallback={<HeroSkeletonLoader />}>
           <Hero
+            key={props.low}
             id={props.low}
             delay={DELAYS.HERO_1}
           />
           <Hero
+            key={props.low + 1}
             id={props.low + 1}
             delay={DELAYS.HERO_2}
           />
           <Hero
+            key={props.low + 2}
             id={props.low + 2}
             delay={DELAYS.HERO_3}
           />
           <Hero
+            key={props.low + 3}
             id={props.low + 3}
             delay={DELAYS.HERO_4}
           />
@@ -35,19 +40,10 @@ export default function HeroesList (props) {
 const APIResource = createResource(getHero);
 
 function Hero (props) {
-  // Read from the cache / fetch in case of a cache-miss
+  // Read from the resource.
+  // Internally, it returns a promise.
+  // It determines if it's a cache-hit / fetches in case of a cache-miss
   const hero = APIResource.read({ id: props.id, delay: props.delay });
 
-  return (
-    <div className='hero'>
-      <img 
-        className='hero-thumbnail'
-        src={hero.url_full_portrait}
-        alt={hero.localized_name}
-      />
-      <div className='hero-title'>
-        {hero.localized_name}
-      </div>
-    </div>
-  );
+  return <HeroTile hero={hero} />;
 }

@@ -4,7 +4,7 @@ import constants from '../constants/constants';
 
 export default function Pagination (props) {
 
-  const handleLeft = () => {
+  function handleLeft () {
     let limits = getLimits(),
       low = props.pagination.low - constants.LIST_ITEMS_COUNT,
       high = props.pagination.high - constants.LIST_ITEMS_COUNT;
@@ -17,7 +17,7 @@ export default function Pagination (props) {
     props.onChange({ low, high });
   }
 
-  const handleRight = () => {
+  function handleRight () {
     let limits = getLimits(),
       low = props.pagination.low + constants.LIST_ITEMS_COUNT,
       high = props.pagination.high + constants.LIST_ITEMS_COUNT;

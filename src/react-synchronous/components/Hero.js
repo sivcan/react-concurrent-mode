@@ -1,36 +1,32 @@
 import React, { useEffect, useState } from 'react';
 import { getHero } from '../../services/DotaService';
 import HeroSkeletonLoader from './HeroSkeletonLoader';
+import HeroTile from '../../components/HeroTile';
 
 export default function Hero (props) {
   const [hero, setHero] = useState({});
 
   useEffect(() => {
-    setHero({});
+    let isSubscribed = true,
+      opts = JSON.stringify({ id: props.id, delay: props.delay });
 
-    let opts = JSON.stringify({ id: props.id, delay: props.delay });
     getHero(opts)
       .then((hero) => {
-        setHero(hero);
+        // In case it's subscribed and the component gets unmounted,
+        // then do not try to set the state of the unmounted component
+        isSubscribed && setHero(hero);
       });
+
+    // Ideally, it should cancel the call of the promise, but that isn't supported.
+    // So, we use this isSubscribed variable to control the updating of the state
+    // only when the component is mounted, otherwise the cleaner function will run
+    // and clean it up.
+    return () => { isSubscribed = false; };
   }, [props.id, props.delay]);
 
-  return (
-    <>
-    {
-      !hero.localized_name ?
-        <HeroSkeletonLoader /> :
-        <div className='hero'>
-          <img 
-            className='hero-thumbnail'
-            src={hero.url_full_portrait}
-            alt={hero.localized_name}
-          />
-          <div className='hero-title'>
-            {hero.localized_name}
-          </div>
-        </div>
-    }
-    </>
-  );
+  if (!hero.localized_name) {
+    return <HeroSkeletonLoader />;
+  }
+
+  return <HeroTile hero={hero} />;
 }

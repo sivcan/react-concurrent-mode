@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function HeroCard ({ hero }) {
+export default function HeroTile ({ hero }) {
   return (
     <div className='hero'>
       <img 
