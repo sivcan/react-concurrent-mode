@@ -1,12 +1,33 @@
-import React from 'react';
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import logo from './assets/logo.svg';
+import './App.scss';
+import ConcurrentApp from './react-concurrent/ConcurrentApp';
+import SynchronousApp from './react-synchronous/SynchronousApp';
+import constants from './constants/constants';
+import Pagination from './components/Pagination';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+function App () {
+  const [pagination, setPagination] = useState({ low: 1, high: constants.LIST_ITEMS_COUNT });
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+  return (
+    <div>
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+      </header>
+      <div className="App-container">
+        <SynchronousApp pagination={pagination} />
+        <ConcurrentApp pagination={pagination} />
+      </div>
+      <Pagination
+        pagination={pagination}
+        onChange={setPagination}
+      />
+    </div>
+  );
+}
+
+const root = document.getElementById('root');
+
+// This makes React use the Concurrent Mode
+ReactDOM.createRoot(root).render(<App />);

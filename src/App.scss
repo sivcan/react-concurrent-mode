@@ -1,0 +1,45 @@
+@import './index.scss';
+
+.App {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &:first-child {
+    margin-right: 80px;
+  }
+}
+
+.App-logo {
+  height: 10vmin;
+  user-select: none;
+}
+
+.App-header {
+  background-color: #282c34;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: #FFFFFF;
+  padding-top: 32px;
+  margin-bottom: 16px;
+}
+
+.App-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.App-title {
+  font-family: "TrajanPro-Bold";
+  color: #FFFFFF;
+  font-size: 18px;
+}
+
+.App-link {
+  color: #09d3ac;
+}

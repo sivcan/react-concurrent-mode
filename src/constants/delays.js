@@ -1,0 +1,9 @@
+const DELAYS = {
+  HERO_1: 1000,
+  HERO_2: 100,
+  HERO_3: 2300,
+  HERO_4: 300,
+  TRANSITION_TIMEOUT: 1000
+};
+
+export default DELAYS;
