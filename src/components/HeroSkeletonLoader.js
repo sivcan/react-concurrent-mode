@@ -1,11 +1,11 @@
 import React from 'react';
-import constants from '../constants/constants';
+import { LIST_ITEMS_COUNT } from '../constants/constants';
 
 export default function HeroSkeletonLoader () {
   return (
     <>
     {
-      Array(constants.LIST_ITEMS_COUNT).fill(0).map((s, idx) => {
+      [...new Array(LIST_ITEMS_COUNT)].map((_, idx) => {
         return (
           <div
             key={`skeleton-${idx}`}

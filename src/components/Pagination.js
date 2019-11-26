@@ -1,6 +1,7 @@
 import React from 'react';
 import { getLimits } from '../services/DotaService';
 import constants from '../constants/constants';
+import Spinner from './Spinner';
 
 export default function Pagination (props) {
 
@@ -54,6 +55,12 @@ export default function Pagination (props) {
             />
         </svg>
       </div>
+      {
+        props.isPending &&
+          <div className='spinner'>
+            <Spinner />
+          </div>
+      }
     </div>
   );
 }

@@ -11,22 +11,18 @@ export default function HeroesList (props) {
       <div className='hero-list'>
         <Suspense fallback={<HeroSkeletonLoader />}>
           <Hero
-            key={props.low}
             id={props.low}
             delay={DELAYS.HERO_1}
           />
           <Hero
-            key={props.low + 1}
             id={props.low + 1}
             delay={DELAYS.HERO_2}
           />
           <Hero
-            key={props.low + 2}
             id={props.low + 2}
             delay={DELAYS.HERO_3}
           />
           <Hero
-            key={props.low + 3}
             id={props.low + 3}
             delay={DELAYS.HERO_4}
           />

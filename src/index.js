@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useTransition } from 'react';
 import ReactDOM from 'react-dom';
 import logo from './assets/logo.svg';
 import './App.scss';
@@ -14,7 +14,25 @@ import Toggle from './components/Toggle';
 
 function App () {
   const [pagination, setPagination] = useState({ low: 1, high: LIST_ITEMS_COUNT }),
-    [modes, setModes] = useState({ [SYNC]: true, [CONCURRENT]: false });
+    [modes, setModes] = useState({ [SYNC]: true, [CONCURRENT]: false }),
+    [startTransition, isPending] = useTransition({ timeoutMs: 3000 });
+
+  function handlePagination (pagination) {
+    // Demo - when in concurrent mode, we can use the useTransition hook
+    // and wait for the timeout to fire!
+    // Also, gives us the nice `isPending` boolean to be true
+    // using which we can show a loader on the current screen
+    // till the next screen is completely rendered and ready to be committed
+    if (!modes[SYNC] && modes[CONCURRENT]) {
+      startTransition(() => {
+        setPagination(pagination);
+      });
+
+      return;
+    }
+
+    setPagination(pagination);
+  }
 
   return (
     <div>
@@ -34,8 +52,9 @@ function App () {
         }
       </div>
       <Pagination
+        isPending={isPending}
         pagination={pagination}
-        onChange={setPagination}
+        onChange={handlePagination}
       />
     </div>
   );
