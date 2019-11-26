@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/react-concurrent-mode/static/css/main.b47e3a63.chunk.css",
+    "main.js": "/react-concurrent-mode/static/js/main.b8324370.chunk.js",
+    "main.js.map": "/react-concurrent-mode/static/js/main.b8324370.chunk.js.map",
+    "runtime-main.js": "/react-concurrent-mode/static/js/runtime-main.2cfaaf34.js",
+    "runtime-main.js.map": "/react-concurrent-mode/static/js/runtime-main.2cfaaf34.js.map",
+    "static/js/2.a70aadbe.chunk.js": "/react-concurrent-mode/static/js/2.a70aadbe.chunk.js",
+    "static/js/2.a70aadbe.chunk.js.map": "/react-concurrent-mode/static/js/2.a70aadbe.chunk.js.map",
+    "index.html": "/react-concurrent-mode/index.html",
+    "precache-manifest.4790a44414f6fca98be75498afcc7337.js": "/react-concurrent-mode/precache-manifest.4790a44414f6fca98be75498afcc7337.js",
+    "service-worker.js": "/react-concurrent-mode/service-worker.js",
+    "static/css/main.b47e3a63.chunk.css.map": "/react-concurrent-mode/static/css/main.b47e3a63.chunk.css.map",
+    "static/media/logo.svg": "/react-concurrent-mode/static/media/logo.425d747d.svg",
+    "static/media/App.scss": "/react-concurrent-mode/static/media/wand.31fe95ed.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.2cfaaf34.js",
+    "static/js/2.a70aadbe.chunk.js",
+    "static/css/main.b47e3a63.chunk.css",
+    "static/js/main.b8324370.chunk.js"
+  ]
+}

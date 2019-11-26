@@ -1,9 +1,0 @@
-const DELAYS = {
-  HERO_1: 1100,
-  HERO_2: 100,
-  HERO_3: 1800,
-  HERO_4: 600,
-  TRANSITION_TIMEOUT: 1000
-};
-
-export default DELAYS;
