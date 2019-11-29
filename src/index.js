@@ -10,12 +10,30 @@ import {
   CONCURRENT,
   LIST_ITEMS_COUNT
 } from './constants/constants';
+import DELAYS from './constants/delays';
 import Toggle from './components/Toggle';
+
+const isSync = (() => {
+    if (localStorage.hasOwnProperty(SYNC)) {
+      return JSON.parse(localStorage.getItem(SYNC));
+    }
+
+    localStorage.setItem(SYNC, true);
+    return true;
+  })(),
+  isConcurrent = (() => {
+    if (localStorage.hasOwnProperty(CONCURRENT)) {
+      return JSON.parse(localStorage.getItem(CONCURRENT));
+    }
+
+    localStorage.setItem(CONCURRENT, false);
+    return false;
+  })();
 
 function App () {
   const [pagination, setPagination] = useState({ low: 1, high: LIST_ITEMS_COUNT }),
-    [modes, setModes] = useState({ [SYNC]: true, [CONCURRENT]: false }),
-    [startTransition, isPending] = useTransition({ timeoutMs: 3000 });
+    [modes, setModes] = useState({ [SYNC]: isSync, [CONCURRENT]: isConcurrent }),
+    [startTransition, isPending] = useTransition({ timeoutMs: DELAYS.TRANSITION_TIMEOUT });
 
   function handlePagination (pagination) {
     // Demo - when in concurrent mode, we can use the useTransition hook
@@ -45,14 +63,20 @@ function App () {
       </header>
       <div className="App-container">
         {
-          modes[SYNC] && <SynchronousApp pagination={pagination} />
+          modes[SYNC] &&
+            <SynchronousApp
+              pagination={pagination}
+            />
         }
         {
-          modes[CONCURRENT] && <ConcurrentApp pagination={pagination} />
+          modes[CONCURRENT] &&
+            <ConcurrentApp
+              isPending={isPending}
+              pagination={pagination}
+            />
         }
       </div>
       <Pagination
-        isPending={isPending}
         pagination={pagination}
         onChange={handlePagination}
       />

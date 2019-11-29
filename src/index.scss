@@ -136,13 +136,12 @@ code {
 
 .spinner {
   display: inline-block;
-  position: relative;
   width: 40px;
   height: 80px;
   transform: scale(0.5);
   position: absolute;
-  left: calc(50% + 30px);
-  top: -10px;
+  left: calc(50% + 90px);
+  top: -20px;
 }
 
 .spinner div {

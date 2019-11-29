@@ -4,6 +4,7 @@ import { SYNC, CONCURRENT } from '../constants/constants';
 
 export default function Toggle ({ modes, setModes }) {
   const handleMode = (mode) => {
+      localStorage.setItem(mode, !modes[mode]);
       setModes({ ...modes, [mode]: !modes[mode] });
     },
     getCheckboxClass = (mode) => {
