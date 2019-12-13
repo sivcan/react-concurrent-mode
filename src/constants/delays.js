@@ -1,7 +1,7 @@
 export default {
-  HERO_1: 700,
-  HERO_2: 900,
-  HERO_3: 1000,
-  HERO_4: 300,
+  HERO_1: 1700,
+  HERO_2: 1900,
+  HERO_3: 4100,
+  HERO_4: 5300,
   TRANSITION_TIMEOUT: 1000
 };
