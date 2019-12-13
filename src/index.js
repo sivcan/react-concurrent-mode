@@ -33,7 +33,11 @@ const isSync = (() => {
 function App () {
   const [pagination, setPagination] = useState({ low: 1, high: LIST_ITEMS_COUNT }),
     [modes, setModes] = useState({ [SYNC]: isSync, [CONCURRENT]: isConcurrent }),
-    [startTransition, isPending] = useTransition({ timeoutMs: DELAYS.TRANSITION_TIMEOUT });
+    [startTransition, isPending] = useTransition({
+      timeoutMs: DELAYS.TRANSITION_TIMEOUT
+    });
+
+
 
   function handlePagination (pagination) {
     // Demo - when in concurrent mode, we can use the useTransition hook
