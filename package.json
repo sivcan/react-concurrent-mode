@@ -4,7 +4,7 @@
   "private": true,
   "homepage": "http://sivcan.github.io/react-concurrent-mode",
   "dependencies": {
-    "node-sass": "^4.13.0",
+    "node-sass": "^4.13.1",
     "react": "0.0.0-experimental-b53ea6ca0",
     "react-cache": "^2.0.0-alpha.1",
     "react-dom": "0.0.0-experimental-b53ea6ca0",
