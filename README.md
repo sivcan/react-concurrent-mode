@@ -6,6 +6,11 @@ The project lists *Dota 2 heroes* for the example!
 
 **Disclaimer**: The concurrent mode is still in experimental mode, so avoid using it in production apps.
 
+## Screenshots
+
+![react-cache](https://user-images.githubusercontent.com/12631777/119256776-f1935d80-bbdf-11eb-9f00-be9f0f095178.gif)
+
+
 
 ## Usage steps
 1. Install the dependencies
